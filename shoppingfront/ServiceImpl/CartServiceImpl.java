@@ -36,9 +36,9 @@ public class CartServiceImpl implements CartService{
 		
 	}
 
-	public Long getTotalAmount(int id) {
+	public Double getTotalAmount(String customerEmail) {
 		// TODO Auto-generated method stub
-	 return cartdao.getTotalAmount(id);
+	 return cartdao.getTotalAmount(customerEmail);
 	}
 
 	public void delete(int cartId) {

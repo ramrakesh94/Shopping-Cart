@@ -15,7 +15,7 @@ public interface CartDAO {
 	
 	public void delete(int cartId);
 
-	public Long getTotalAmount(int id);
+	public Double getTotalAmount(String customerEmail);
 	
 	public List<Cart> getByEmailId(String customerEmail);
 	

@@ -18,7 +18,7 @@ private SessionFactory sessionFactory;
 
 @Transactional
 public List<Ship> list(int id) {
-	String hql = "from ShippingAddress where id='" + id + "'";
+	String hql = "from Ship where shipId='" + id + "'";
 	Query query = sessionFactory.getCurrentSession().createQuery(hql);
 	@SuppressWarnings("unchecked")
 	List<Ship> list = (List<Ship>) query.list();
@@ -30,7 +30,7 @@ public List<Ship> list(int id) {
 
 @Transactional
 public Ship get(String username) {
-	String hql = "from ShippingAddress where username ='"+ username+"'";
+	String hql = "from Ship where customerName ='"+ username+"'";
 	Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 	@SuppressWarnings("unchecked")
 	List<Ship> listShip = (List<Ship>) (query).list();
@@ -44,7 +44,7 @@ public Ship get(String username) {
 
 @Transactional
 public Ship getByshipId(int ShipId) {
-	String hql = "from ShippingAddress where ShippingId ='"+ ShipId+"'";
+	String hql = "from Ship where shipId ='"+ ShipId+"'";
 	Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 	@SuppressWarnings("unchecked")
 	List<Ship> listShip = (List<Ship>) (query).list();

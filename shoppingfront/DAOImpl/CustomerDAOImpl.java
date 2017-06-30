@@ -3,9 +3,11 @@ package com.niit.shoppingfront.DAOImpl;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,8 +37,10 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	public Customer getCustById(String username) {
-		// TODO Auto-generated method stub
-		return null;
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Customer.class);
+		criteria.add(Restrictions.eq("customerName", username));
+		return (Customer) criteria.uniqueResult();
+		
 	}
 
 	public Customer getByEmailId(String emailid) {

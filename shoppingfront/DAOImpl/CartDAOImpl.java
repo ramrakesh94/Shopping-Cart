@@ -36,11 +36,13 @@ public class CartDAOImpl implements CartDAO {
 	@Transactional
 	public Cart get(int cartId) {
 		
-		String hql = "from Cart where CartId ='" + cartId +"'";
+		String hql = "from Cart where cartId ='" + cartId +"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
-		List<Cart> list = (List<Cart>) query.list();
-		
+		List<Cart> listCart = (List<Cart>) query.list();
+		if (listCart != null && !listCart.isEmpty()){
+			return listCart.get(0);
+		}
 		return null;
 	}
 
@@ -99,11 +101,11 @@ public class CartDAOImpl implements CartDAO {
 	
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public Long getTotalAmount(int id) {
-		String hql = "select sum(total) from Cart where userId = " + "'" + id + "'" + "and status = '" + "Pending"
+	public Double getTotalAmount(String customerEmail) {
+		String hql = "select sum(cartTotalprice) from Cart where customerEmail = " + "'" + customerEmail + "'" + "and cartStatus = '" + "Ready"
 				+ "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		Long sum = (Long) query.uniqueResult();
+		Double sum = (Double) query.uniqueResult();
 		return sum;
 	}
 	@Transactional

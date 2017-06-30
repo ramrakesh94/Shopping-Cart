@@ -17,7 +17,7 @@ public interface CartService {
 	
 	public void saveOrUpdate(Cart cart);
 	
-	public Long getTotalAmount(int id);
+	public Double getTotalAmount(String customerEmail);
 	
 	public void delete(int cartId);
 	

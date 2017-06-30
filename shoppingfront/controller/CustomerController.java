@@ -63,12 +63,14 @@ public class CustomerController {
 		
 		ship.setCustomerId(cust.getCustomerId());
 		shipService.saveOrUpdate(ship);
+		model.addAttribute("message", "You have Registered Successfully ");
+		model.addAttribute("isUserClickedSignSuccess", "true");
 		
 		return "home";
 	}
 
 	@RequestMapping("/afterlogin")
-	public String afterLogin(Principal p, Model model) {
+	public String afterLogin(Principal p, Model model,String cust) {
 		String emailid = p.getName();
 
 		// Customer customer = customerdao.getByEmailId(emailid);
@@ -82,8 +84,8 @@ public class CustomerController {
 			return "Admin";
 		} else if (r.equals("ROLE_USER")) {
 			List<Product> productList = productService.getAllProducts();
-
-			model.addAttribute("listofprod", productList);
+			/*List <Customer> Custlist = (List<Customer>) customerdao.getCustById(cust);*/
+        	model.addAttribute("listofprod", productList);
 			model.addAttribute("isUserLoggedIn", "true");
 			return "User";
 		} else {

@@ -25,6 +25,16 @@ public class Ship {
 	private String customerPhone;
 
 	private String customerZIP;
+	
+	private String customerfeed;
+
+	public String getCustomerfeed() {
+		return customerfeed;
+	}
+
+	public void setCustomerfeed(String customerfeed) {
+		this.customerfeed = customerfeed;
+	}
 
 	public int getShipId() {
 		return shipId;
