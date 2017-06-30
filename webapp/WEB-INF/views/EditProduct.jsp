@@ -15,9 +15,101 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Shopping</title>
+<script>
+
+
+function formProd() {
+	var productName = document.getElementById('productName');
+	var productDesc = document.getElementById('productDesc');
+	var productPrice = document.getElementById('productPrice');
+	
+	var productstock = document.getElementById('productstock');
+	
+	if (notEmpty(productName, " Product Name Should not be empty")) 
+	{
+		
+		if (isAlphabet(productName, "Please enter only letters for Product Name "))
+			{
+			
+				if (isAlphanumeric(productDesc, "Please enter alpha-numeric characters for Description"))
+				{
+					if (notEmpty(productPrice,
+					"Price Should not be empty")) 
+					{
+						if (isNumeric(
+								productPrice,
+								"Please enter a valid price"))
+							{
+							if (notEmpty(productstock,
+							"Stock Should not be empty")) 
+							{
+								if (isNumeric(
+										productstock,
+										"Please enter a valid stock quantity"))
+							
+							{
+				
+			return true ;
+					}
+							}
+							}
+					}
+				}
+			}
+	}
+
+	return false;
+	}
+
+	function notEmpty(elem, helperMsg) {
+		if (elem.value.length == 0) {
+			alert(helperMsg);
+			elem.focus(); // set the focus to this input
+			return false;
+		}
+		return true;
+	}
+	function isAlphabet(elem, helperMsg) {
+		var alphaExp = /^[a-z A-Z]+$/;
+		if (elem.value.match(alphaExp)) {
+			return true;
+		} else {
+			alert(helperMsg);
+			elem.focus();
+			return false;
+		}
+	}
+	function isAlphanumeric(elem, helperMsg) {
+		var alphaExp = /^[0-9a-zA-Z\.\-]+$/;
+		if (elem.value.match(alphaExp)) {
+			return true;
+		} else {
+			alert(helperMsg);
+			elem.focus();
+			return false;
+		}
+	}
+	
+	function isNumeric(elem, helperMsg) {
+		var numericExpression = /^[0-9]+$/;
+		if (elem.value.match(numericExpression)) {
+			return true;
+		} else {
+			alert(helperMsg);
+			elem.focus();
+			return false;
+		}
+	}
+	
+	
+
+
+	
+
+</script>
 </head>
 <body>
-<form action="afterEditProduct" method="post">
+<form action="afterEditProduct" method="post" onsubmit="return formProd()">
 <div class="form-group">
     <label for="productId">Product Id</label>
     <input type="text" class="form-control" id="productId" name="productId" value=" ${product.productId}" readonly="true">

@@ -23,11 +23,106 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<title>Insert title here</title>
+	<script>
+	function formShip() {
+	var name = document.getElementById('name');
+	var phone = document.getElementById('ph');
+	
+	var address = document.getElementById('address');
+	var zipcode = document.getElementById('zip');
+	
+	if (notEmpty(name, "Name Should not be empty")) 
+	{
+		if (isAlphabet(name, "Please enter only letters for name"))
+			{
+			if (notEmpty(phone,
+			"PhoneNumber Should not be empty")) 
+			
+		{
+			if (isNumeric(phone,
+			"Please enter only number for PhoneNumber")) 
+		{
+				if (notEmpty(address,
+				"Address Should not be empty"))
+				{	
+					if (isAlphanumeric(address,
+					"Numbers and Letters Only for Address")) 
+					{	
+						
+					if (notEmpty(zipcode,
+					"Zipcode Should not be empty")) 
+					{
+				if (isNumeric(
+						zipcode,
+						"Please enter a valid zip code")) {
+					
+					
+					
+					
+					return true;
+				}
+			
+		}
+					}
+				}
+				
+		}
+		}
+			}
+	}
+return false;
+}
+
+function notEmpty(elem, helperMsg) {
+if (elem.value.length == 0) {
+alert(helperMsg);
+elem.focus(); // set the focus to this input
+return false;
+}
+return true;
+}
+function isNumeric(elem, helperMsg) {
+var numericExpression = /^[0-9]+$/;
+if (elem.value.match(numericExpression)) {
+return true;
+} else {
+alert(helperMsg);
+elem.focus();
+return false;
+}
+}
+function isAlphabet(elem, helperMsg) {
+var alphaExp = /^[a-z A-Z]+$/;
+if (elem.value.match(alphaExp)) {
+return true;
+} else {
+alert(helperMsg);
+elem.focus();
+return false;
+}
+}
+function isAlphanumeric(elem, helperMsg) {
+var alphaExp = /^[0-9a-zA-Z\.\-]+$/;
+if (elem.value.match(alphaExp)) {
+return true;
+} else {
+alert(helperMsg);
+elem.focus();
+return false;
+}
+}
+
+					
+				
+					
+	
+	
+	</script>
 </head>
 <body>
 <div class="container">
  
-   <form class="well form-horizontal" action="deliverytofriend" method="post" >
+   <form class="well form-horizontal" action="deliverytofriend" method="post" onsubmit="return formShip()" >
   
 <fieldset>
 
@@ -43,7 +138,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  class="form-control" name="customerName" type="text">
+  <input  class="form-control" id="name" name="customerName" type="text">
     </div>
   </div>
 </div>
@@ -61,7 +156,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-  <input placeholder="(845)555-1212"  name="customerPhone" class="form-control" type="text">
+  <input placeholder="(845)555-1212" id="ph"  name="customerPhone" class="form-control" type="text">
     </div>
   </div>
 </div>
@@ -73,7 +168,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-  <input placeholder="Address" class="form-control" name="customerAddress" type="text">
+  <input placeholder="Address" class="form-control" id="address" name="customerAddress" type="text">
     </div>
   </div>
 </div>
@@ -84,11 +179,29 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
-  <input placeholder="Zip Code" class="form-control"  type="text" name="customerZIP">
+  <input placeholder="Zip Code" class="form-control" id="zip"  type="text" name="customerZIP">
     
     </div>
+    
 </div>
 </div>
+<div class="form-group">
+                        <label class="col-md-4 control-label">Would You Prefer this Site to Others ?</label>
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="customerfeed" value="yes" /> Yes
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="customerfeed" value="no" /> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
 <img src="resources/discount.jpg" width="200" height="200" align="right">
 <center><button type="submit" class="btn btn-warning" >Continue<span class="glyphicon glyphicon-send"></span></button></center>
     

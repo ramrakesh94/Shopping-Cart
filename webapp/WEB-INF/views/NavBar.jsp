@@ -47,8 +47,8 @@ font-family: Aclonica;
       </ul>
       <form class="navbar-form navbar-left">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-         <button> <span class="glyphicon glyphicon-search"></span></button>
+       <!--  <input type="text" class="form-control" placeholder="Search"> -->
+       <!--   <button> <span class="glyphicon glyphicon-search"></span></button> -->
         
         </form>
       </div>

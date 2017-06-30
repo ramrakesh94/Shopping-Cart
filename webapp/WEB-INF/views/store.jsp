@@ -90,9 +90,9 @@ input[type=reset]:active {
   right: 0;
   bottom: 0;
   left: 0;
-  width: 330px;
+  width: 300px;
   height: 730px;
-  perspective: 800px;
+  perspective: 810px;
   transform-style: preserve-3d;
 }
 
@@ -100,9 +100,9 @@ input[type=reset]:active {
   display: block;
   width: 384px;
   height: 224px;
-  margin: auto;
+  margin: -2;
   transform-style: preserve-3d;
-  transform: translateY(99px) rotateX(66deg) rotateZ(36deg);
+  transform: translateY(257px) rotateX(93deg) rotateZ(36deg);
   transition: transform 0.25s;
   will-change: transform;
 }

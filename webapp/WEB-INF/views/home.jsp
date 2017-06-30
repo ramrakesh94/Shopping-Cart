@@ -101,7 +101,7 @@ font-family: Aclonica;
 		<a href="#" title="Novels"><span><img src="resources/data1/tooltips/novels.jpg" alt="Novels"/>4</span></a>
 		<a href="#" title="School"><span><img src="resources/data1/tooltips/school.jpg" alt="School"/>5</span></a>
 		<a href="#" title="Teenagers"><span><img src="resources/data1/tooltips/teenagers.jpg" alt="Teenagers"/>6</span></a>
-	</div></div><div class="ws_script" style="position:absolute;left:-99%"></a> </div>
+	</div></div><div class="ws_script" style="position:absolute;left:-99%"></div>
 <div class="ws_shadow"></div>
 </div>	
 <script type="text/javascript" src="resources/engine1/wowslider.js"></script>
@@ -133,6 +133,12 @@ font-family: Aclonica;
 
 </c:when>
 
+ <c:when test="${isUserClickedSignSuccess == 'true' }">
+<%@ include file="RegSuccess.jsp" %>
+
+</c:when>
+
+
 <c:when test="${isUserClickedProdInfo == 'true' }">
 <%@ include file="productDetails.jsp" %>
 </c:when>
@@ -150,6 +156,7 @@ font-family: Aclonica;
 
 <c:otherwise>
 <%@ include file="grid.jsp" %>
+
 </c:otherwise>
 </c:choose>
 <br>

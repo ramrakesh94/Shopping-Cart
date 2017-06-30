@@ -24,8 +24,8 @@ border: 1px solid #ddd;
     
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
-tr:nth-child(odd){background-color: #f2f2f2}
+tr:nth-child(even){background-color: #FFF0F5}
+tr:nth-child(odd){background-color: #FFF0F5}
 
 th {
     background-color: #483D8B;
@@ -44,57 +44,52 @@ font-family: Aclonica;
 </head>
 <body>
 
-<center><h2><font face="Aclonica" size="4">My Cart</h2></center>
+<center><h2><font face="Aclonica" size="4">Billing Details</h2></center>
 
 <table>
 
   <tr>
     <th>S.No</th>
-    <th>Cart Id</th>
-    <th>Customer Email</th>
-     <th>Product</th>
+    
+    
     <th>Product Name</th>
     <th>Price</th>
     <th>Total Price</th>
     <th>Quantity</th>
-    <th>Status</th>
     
-    <th>Days</th>
-    <th>Time</th>
-    <th>Remove</th>
     
   </tr>
   <c:forEach items="${cartList}" var="cart" varStatus="status">
-  <tr>
-    <td>${status.count}</td>
-					<td>${cart.cartId}</td>
-					<td>${cart.customerEmail}</td>
-					<td><img src="<c:url value="/resources/images/productImages/${cart.productId}.jpg"/>" alt="${product.productId}" width="40" height="40"></td>
+				<tr>
+					<td>${status.count}</td>
+					
+					
+					
 					<td>${cart.productName}</td>
 					<td>&#8377;${cart.productPrice}</td>
 					<td>${cart.cartTotalprice}</td>
 					<td>${cart.cartQuantity}</td>
-					<td>${cart.cartStatus}</td>
-					<td>${cart.carttDays}</td>
-					<td>${cart.cartTime}</td>
-					<td><a href="removeCart?cartId=${cart.cartId}">Remove</a></td>
-  </tr>
-  </c:forEach>
-  <tr>
-  <div align="right">
-  <colspan="11">Grand Total : ${GrandTotal}
-  </tr>
-  </div>
-</tr>
-</table>
-<p>
-		<a href="proceed"><button align="right"
-				class="btn btn-primary">Proceed</button>
-		<a href ="Home"class="btn btn-primary pull-right"">Continue Shopping</a>
+					
+					
+					
+					
+				</tr>
+			</c:forEach>
+   <tr> <td colspan="11"> Grand Total : &#8377; ${GrandTotal}</td></tr>
+		
+			
+<tr>				
+<td colspan="11">Delivery Adresss: <h3>Name: ${ship.customerName}</h3>
+<h3>Mobile: ${ship.customerPhone}</h3>
+<h3>Address: ${ship.customerAddress}</h3>
+<h3>ZIP: ${ship.customerZIP}</h3></td></tr>
 				
-	</p>
-
-
+					
+</table>	
+<p><center>
+Thanks for Shopping 
+</center></center></p>
+	
 
 </body>
 </html>

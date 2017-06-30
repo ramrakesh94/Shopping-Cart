@@ -32,6 +32,30 @@ body {
 }    
 
 </style>
+<script>
+function validate(e){
+	var userName = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+
+	if (userName.length === 0) {
+		alert("You must enter a username.");
+		e.preventDefault();
+		return;
+	}
+
+	if (password.length === 0) {
+		alert("You must enter a password.");
+		e.preventDefault();
+		return;
+	}
+}
+
+window.onload = function() {
+	document.getElementById("logInForm").addEventListener("submit", function(e){
+    	validate(e);
+	});
+}
+</script>
 </head>
 <body>
                          <form action ="signin" class="form-horizontal" method="post" > 

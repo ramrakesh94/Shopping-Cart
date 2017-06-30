@@ -20,6 +20,9 @@
 <title>Shopping</title>
 <body>
 <%@ include file="NavBar.jsp" %>
+ <c:if test="${pageContext.request.userPrincipal.name != null }">
+<p><font face="Aclonica" size="4"> Welcome ${pageContext.request.userPrincipal.name}</p>
+</c:if>
 
 <c:choose>
 <c:when test="${isUserClickedmyCart == true }">
@@ -28,15 +31,31 @@
  <c:when test="${isUserClickedProceed == true }">
 <%@ include file="DeliverWho.jsp" %>
 </c:when>
+<c:when test="${isUserClickedDeliverWho == true }">
+<%@ include file="Payment.jsp" %>
+</c:when>
+<c:when test="${isUserClickedEditShip == true }">
+<%@ include file="EditShipping.jsp" %>
+</c:when> 
+
+<c:when test="${isUserClickedCashOncred == true }">
+<%@ include file="CreditCard.jsp" %>
+</c:when> 
+
+<c:when test="${isUserClickedbilling == true }">
+<%@ include file="billing.jsp" %>
+</c:when>
+
 <c:when test="${isUserClickedNewDelivery == true }">
 <%@ include file="viewShipping.jsp" %>
 </c:when>
+
 <c:otherwise>
 <%@ include file="grid.jsp" %>
 </c:otherwise>
 </c:choose>
 
-
+<form action="afterEditProduct" method="post">
 </body>
 </html>
 </body>
